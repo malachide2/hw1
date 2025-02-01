@@ -27,6 +27,12 @@ class ULListStr {
       first = last = 0;
       prev = next = NULL;
     }
+    // Additional constructor for efficiency
+    // When adding a new head node, it's more efficient to start from the back since the push front operation has more room
+    Item(size_t idx) {
+      first = last = idx;
+      prev = next = nullptr;
+    }
   };
 
   /**
