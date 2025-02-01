@@ -33,6 +33,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
     }
     evens = in;
   }
+  in = nullptr;
 }
 
 /* If you needed a helper function, write it here */
