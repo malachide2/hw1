@@ -100,7 +100,7 @@ std::string const& ULListStr::back() const {
 
 std::string const& ULListStr::front() const {
   if (empty()) return NULL;
-  return head_->val[head_->front];
+  return head_->val[head_->first];
 }
 
 void ULListStr::set(size_t loc, const std::string& val)
