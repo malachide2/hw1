@@ -37,7 +37,7 @@ void ULListStr::push_back(const std::string& val) {
     tail_ = tail_->next;
   }
 
-  tail_->val[tail->last++] = val;
+  tail_->val[tail_->last++] = val;
   size_++;
 }
 
@@ -78,7 +78,7 @@ void ULListStr::push_front(const std::string& val) {
 void ULListStr::pop_front() {
   if (empty()) return;
 
-  head_->front++;
+  head_->first++;
   size_--;
 
   if (empty()) {
@@ -88,19 +88,19 @@ void ULListStr::pop_front() {
   }
   else if (head_->last - head_->first == 0) {
     head_ = head_->next;
-    delete head->prev;
+    delete head_->prev;
     head_->prev = nullptr;
   }
 }
 
 std::string const& ULListStr::back() const {
   if (empty()) return NULL;
-  return tail->val[tail_->last - 1];
+  return tail_->val[tail_->last - 1];
 }
 
 std::string const& ULListStr::front() const {
   if (empty()) return NULL;
-  return tail->val[tail_->last - 1];
+  return head_->val[head_->front];
 }
 
 void ULListStr::set(size_t loc, const std::string& val)
@@ -154,5 +154,5 @@ std::string* ULListStr::getValAtLoc(size_t loc) const {
     }
   }
 
-  return &(currentNode[currentNode->first + currentIdx]);
+  return &(currentNode->val[currentNode->first + currentIdx]);
 }
